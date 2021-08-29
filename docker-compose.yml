@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  nginx:
+    # image: node:14-alpine
+    image: arm32v7/node:14-alpine
+    volumes:
+      - ./:/code
+    mem_limit: 512mb
+    working_dir: /code
+    command: sh -c 'yarn --frozen-lockfile && node index.js'
